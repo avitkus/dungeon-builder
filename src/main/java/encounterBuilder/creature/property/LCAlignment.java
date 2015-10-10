@@ -28,5 +28,9 @@ package encounterBuilder.creature.property;
  * @author Andrew Vitkus
  */
 public enum LCAlignment {
-    LAWFUL, NEUTRAL, CHAOTIC
+    LAWFUL, NEUTRAL, CHAOTIC;
+    
+    public static LCAlignment get(String s) {
+        return valueOf(s.trim().toUpperCase());
+    }
 }

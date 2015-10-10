@@ -28,5 +28,9 @@ package encounterBuilder.creature.property;
  * @author Andrew Vitkus
  */
 public enum CreatureSize {
-    FINE, DIMINUTIVE, TINY, SMALL, MEDIUM, LARGE, HUGE, GARGANTUAN, COLOSSAL
+    FINE, DIMINUTIVE, TINY, SMALL, MEDIUM, LARGE, HUGE, GARGANTUAN, COLOSSAL;
+    
+    public static CreatureSize get(String s) {
+        return valueOf(s.trim().toUpperCase());
+    }
 }

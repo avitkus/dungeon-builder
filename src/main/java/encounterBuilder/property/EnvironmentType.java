@@ -28,5 +28,9 @@ package encounterBuilder.property;
  * @author Andrew Vitkus
  */
 public enum EnvironmentType {
-    PLAINS, FORREST, MOUNTAIN, SWAMP, AQUATIC, DESERT, TUNDRA, CAVE
+    PLAINS, FORREST, MOUNTAIN, SWAMP, AQUATIC, DESERT, TUNDRA, CAVE;
+    
+    public static EnvironmentType get(String s) {
+        return valueOf(s.trim().toUpperCase());
+    }
 }

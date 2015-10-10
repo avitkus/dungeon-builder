@@ -28,5 +28,9 @@ package treasureBuilder;
  * @author Andrew Vitkus
  */
 public enum Rarity {
-    COMMON, UNCOMMON, RARE
+    COMMON, UNCOMMON, RARE;
+    
+    public static Rarity get(String s) {
+        return valueOf(s.trim().toUpperCase());
+    }
 }

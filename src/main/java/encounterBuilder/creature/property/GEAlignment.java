@@ -23,10 +23,16 @@
  */
 package encounterBuilder.creature.property;
 
+import static encounterBuilder.creature.property.LCAlignment.valueOf;
+
 /**
  *
  * @author Andrew Vitkus
  */
 public enum GEAlignment {
-    GOOD, NEUTRAL, EVIL
+    GOOD, NEUTRAL, EVIL;
+    
+    public static GEAlignment get(String s) {
+        return valueOf(s.trim().toUpperCase());
+    }
 }

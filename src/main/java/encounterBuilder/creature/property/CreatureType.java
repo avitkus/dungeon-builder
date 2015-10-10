@@ -29,4 +29,8 @@ package encounterBuilder.creature.property;
  */
 public enum CreatureType {
     OUTSIDER, BEAST, CONSTRUCT, ELEMENTAL, DEMON, DEVIL, FIEND, GIANT, ABERRATION;
+    
+    public static CreatureType get(String s) {
+        return valueOf(s.trim().toUpperCase());
+    }
 }
