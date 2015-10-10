@@ -28,5 +28,9 @@ package encounterBuilder.creature;
  * @author Andrew Vitkus
  */
 public enum TreasureType {
-    STANDARD_ITEMS, MAGIC_ITEMS, GOODS, ART, JEWELS, NONE
+    STANDARD_ITEMS, MAGIC_ITEMS, GOODS, ART, JEWELS, NONE;
+    
+    public static TreasureType get(String s) {
+        return valueOf(s.trim().toUpperCase());
+    }
 }

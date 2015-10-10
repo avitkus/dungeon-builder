@@ -23,49 +23,56 @@
  */
 package dungeonBuilder.util.graph;
 
+import java.util.function.Function;
+
 /**
  *
  * @author Andrew Vitkus
  */
-public class Graph implements IGraph {
+public class Graph<T> implements IGraph<T> {
+    GraphNode<T> root;
 
     @Override
-    public Object[] getElements() {
+    public T[] getElements() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object[][] getEdges() {
+    public T[][] getEdges() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public IGraph getMinimumSpan() {
+    public IGraph<T> getMinimumSpan() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public int distanceFrom(Object a, Object b) {
+    public int distanceFrom(T a, T b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object[] getMaxSeparatedFrom(Object a) {
+    public T[] getMaxSeparatedFrom(T a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object[][] getMaxSeparated() {
+    public T[][] getMaxSeparated() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    private Object[] traverseTree(GraphNode<T> root, Function<T, Object> fcn) {
+        return null;
     }
     
     private class GraphNode<T> {
         private final T value;
-        private final GraphNode<T> connections;
+        private final GraphNode<T>[] connections;
         
-        GraphNode() {
-            value = null;
-            connections = null;
+        GraphNode(T value, GraphNode<T>[] connections) {
+            this.value = value;
+            this.connections = connections;
         }
     }
 }
