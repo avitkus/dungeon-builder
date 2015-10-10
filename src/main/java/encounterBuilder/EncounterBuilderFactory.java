@@ -53,7 +53,7 @@ public class EncounterBuilderFactory {
     	return new IEncounterBuilder() {
         	
         	@Override
-			public ICreature[] getMobs() {
+			public IEncounter getEncounter() {
         		int ncr = cr;
         		List<ICreature> mobs = new ArrayList<>();
         		int len = envCreatures.size();
@@ -69,7 +69,7 @@ public class EncounterBuilderFactory {
 	        				.filter((gen)->gen.getCR() <= compCr).collect(Collectors.toList());
 					
 				}
-				return mobs.toArray(new ICreature[mobs.size()]);
+				return new Encounter(mobs.toArray(new ICreature[mobs.size()]));
 			}
         	
         };

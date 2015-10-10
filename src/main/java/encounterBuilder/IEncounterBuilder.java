@@ -30,5 +30,5 @@ import encounterBuilder.creature.ICreature;
  * @author Andrew Vitkus
  */
 public interface IEncounterBuilder {
-    public ICreature[] getMobs();
+    public IEncounter getEncounter();
 }
