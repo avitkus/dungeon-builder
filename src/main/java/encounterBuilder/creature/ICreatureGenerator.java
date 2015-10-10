@@ -21,19 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dungeonBuilder;
+package encounterBuilder.creature;
+
+import encounterBuilder.property.EnvironmentType;
 
 /**
  *
  * @author Andrew Vitkus
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public interface ICreatureGenerator {
+    ICreature getCreature();
+    ICreature getNamedCreature(String name);
     
+    public String getRace();
+    
+    public EnvironmentType[] getEnvironments();
 }

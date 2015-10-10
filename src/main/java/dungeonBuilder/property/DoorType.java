@@ -21,19 +21,45 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dungeonBuilder;
+package dungeonBuilder.property;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  *
  * @author Andrew Vitkus
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public enum DoorType {
+    WOOD, STEEL, STONE, PORTICULLIS;
+    
+    private static final Map<DoorType, Double> weights;
+    
+    static {
+        weights = new HashMap<>(4);
+        weights.put(WOOD, 0.7);
+        weights.put(STEEL, 0.15);
+        weights.put(STONE, 0.05);
+        weights.put(PORTICULLIS, 0.1);
     }
     
+    public static void setWeight(DoorType type, double weight) {
+        weights.put(type, weight);
+    }
+    
+    public static double getWeight(DoorType type) {
+        return weights.get(type);
+    }
+    
+    public static DoorType getRandom() {
+        double rand = Math.random();
+        for(Entry<DoorType, Double> type : weights.entrySet()) {
+            rand -= type.getValue();
+            if (rand <= 0) {
+                return type.getKey();
+            }
+        }
+        return WOOD;
+    }
 }

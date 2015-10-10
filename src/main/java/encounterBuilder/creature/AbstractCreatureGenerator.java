@@ -21,19 +21,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dungeonBuilder;
+package encounterBuilder.creature;
 
 /**
  *
  * @author Andrew Vitkus
  */
-public class Main {
+public abstract class AbstractCreatureGenerator implements ICreatureGenerator {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    @Override
+    public ICreature getCreature() {
+        return getNamedCreature(getRace());
     }
     
 }

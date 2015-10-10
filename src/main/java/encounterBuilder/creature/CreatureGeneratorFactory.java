@@ -21,19 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dungeonBuilder;
+package encounterBuilder.creature;
+
+import java.nio.file.Path;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
  * @author Andrew Vitkus
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class CreatureGeneratorFactory {
+    public static Set<ICreatureGenerator> buildCreatureGeneratorSet(Path creatureDictonary) {
+        Set creatures = new HashSet<>();
+        return creatures;
     }
     
+    private static ICreatureGenerator buildGenerator(String creatureEntry) {
+        return null;
+    }
 }

@@ -21,19 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dungeonBuilder;
+package dungeonBuilder.space;
 
 /**
  *
  * @author Andrew Vitkus
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+public interface IRoom extends IRectSpace{
+    public boolean isMain();
+    public boolean isBoss();
+    public boolean isFirst();
 }

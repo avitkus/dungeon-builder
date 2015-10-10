@@ -21,19 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dungeonBuilder;
+package encounterBuilder;
+
+import encounterBuilder.property.EnvironmentType;
 
 /**
  *
  * @author Andrew Vitkus
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class EncounterBuilderFactory {
+    public static IEncounterBuilder buildEncoutnerBuilder(int cr, EnvironmentType[] environments) {
+        return null;
     }
-    
 }

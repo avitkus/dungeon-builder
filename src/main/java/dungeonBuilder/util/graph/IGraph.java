@@ -21,19 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dungeonBuilder;
+package dungeonBuilder.util.graph;
 
 /**
  *
  * @author Andrew Vitkus
+ * @param <T> type of the graph's nodes
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public interface IGraph<T> {
+    public T[] getElements();
+    public T[][] getEdges();
     
+    public IGraph<T> getMinimumSpan();
+    public int distanceFrom(T a, T b);
+    
+    public T[] getMaxSeparatedFrom(T a);
+    public T[][] getMaxSeparated();
 }

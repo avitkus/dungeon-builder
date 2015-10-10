@@ -21,19 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dungeonBuilder;
+package dungeonBuilder.space;
+
+import dungeonBuilder.property.Brightness;
 
 /**
  *
  * @author Andrew Vitkus
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public interface ISpace {
+    public int getWidth();
+    public int getHeight();
     
+    public IPoint getTopLeft();
+    public IPoint getCenter();
+    
+    public Brightness getBrightness();
 }
