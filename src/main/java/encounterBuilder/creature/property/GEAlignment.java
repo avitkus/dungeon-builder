@@ -23,8 +23,6 @@
  */
 package encounterBuilder.creature.property;
 
-import static encounterBuilder.creature.property.LCAlignment.valueOf;
-
 /**
  *
  * @author Andrew Vitkus

@@ -37,6 +37,7 @@ public interface ICreature {
     public String getRace();
     public String getName();
     public CreatureSize getSize();
+    public int getSpeed();
     public String[] getDamageResistance();
     public GEAlignment getGEAlignment();
     public LCAlignment getLCAlignment();

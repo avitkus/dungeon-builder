@@ -35,5 +35,7 @@ public interface ICreatureGenerator {
     
     public String getRace();
     
+    public int getCR();
+    
     public EnvironmentType[] getEnvironments();
 }

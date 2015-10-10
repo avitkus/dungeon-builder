@@ -23,6 +23,17 @@
  */
 package encounterBuilder;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+
+import encounterBuilder.creature.CreatureGeneratorFactory;
+import encounterBuilder.creature.ICreature;
+import encounterBuilder.creature.ICreatureGenerator;
 import encounterBuilder.property.EnvironmentType;
 
 /**
@@ -30,7 +41,48 @@ import encounterBuilder.property.EnvironmentType;
  * @author Andrew Vitkus
  */
 public class EncounterBuilderFactory {
-    public static IEncounterBuilder buildEncoutnerBuilder(int cr, EnvironmentType[] environments) {
-        return null;
+	private static final Path creatureDictionary = Paths.get("creatures.dic");
+	
+    public static IEncounterBuilder buildEncoutnerBuilder(int cr, EnvironmentType[] environments) throws IOException {
+    	List<ICreatureGenerator> creatures = CreatureGeneratorFactory.buildCreatureGeneratorList(creatureDictionary);
+		List<ICreatureGenerator> envCreatures = creatures.stream()
+				.filter((gen)->gen.getCR() <= cr)
+				.filter((gen)->arrayOverlap(gen.getEnvironments(), environments))
+				.collect(Collectors.toList());
+	
+    	return new IEncounterBuilder() {
+        	
+        	@Override
+			public ICreature[] getMobs() {
+        		int ncr = cr;
+        		List<ICreature> mobs = new ArrayList<>();
+        		int len = envCreatures.size();
+        		Random random = new Random();
+        		List<ICreatureGenerator> crLimitCreatures = envCreatures;
+        		while (ncr > 0 && !crLimitCreatures.isEmpty()) {
+					int rand = random.nextInt(len);
+					ICreatureGenerator generator = crLimitCreatures.get(rand);
+					mobs.add(generator.getCreature());
+					ncr = ncr - generator.getCR();
+	        		final double compCr = ncr;
+	        		crLimitCreatures = envCreatures.stream()
+	        				.filter((gen)->gen.getCR() <= compCr).collect(Collectors.toList());
+					
+				}
+				return mobs.toArray(new ICreature[mobs.size()]);
+			}
+        	
+        };
+    }
+    
+    private static boolean arrayOverlap(Object[] a, Object b[]) {
+    	for(Object oa :  a) {
+    		for(Object ob : b) {
+    			if (oa.equals(ob)) {
+    				return true;
+    			}
+    		}
+    	}
+    	return false;
     }
 }

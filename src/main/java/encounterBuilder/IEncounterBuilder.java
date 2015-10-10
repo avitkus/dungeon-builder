@@ -23,12 +23,12 @@
  */
 package encounterBuilder;
 
-import encounterBuilder.creature.IMob;
+import encounterBuilder.creature.ICreature;
 
 /**
  *
  * @author Andrew Vitkus
  */
 public interface IEncounterBuilder {
-    public IMob[] getMobs();
+    public ICreature[] getMobs();
 }
