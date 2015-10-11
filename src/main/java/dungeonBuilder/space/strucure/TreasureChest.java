@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Andrew Vitkus, Skye Frame.
+ * Copyright 2015 Andrew.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,22 +21,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dungeonBuilder.space;
+package dungeonBuilder.space.strucure;
 
-import dungeonBuilder.space.strucure.IStructure;
+import dungeonBuilder.space.IPoint;
+import treasureBuilder.ITreasure;
 
 /**
  *
- * @author Andrew Vitkus
+ * @author Andrew
  */
-public interface IRoom extends IRectSpace{
-    public void setMain(boolean main);
-    public boolean isMain();
-    public void setBoss(boolean boss);
-    public boolean isBoss();
-    public void setFirst(boolean first);
-    public boolean isFirst();
+public class TreasureChest implements ITreasureChest {
+    private final ITreasure[] treasure;
     
-    public void setStructures(IStructure[] structs);
-    public IStructure[] getStructures();
+    public TreasureChest(ITreasure[] treasure) {
+        this.treasure = treasure;
+    }
+
+    @Override
+    public ITreasure[] getTreasure() {
+        return treasure;
+    }
+
+    @Override
+    public IPoint getPoint() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

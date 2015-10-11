@@ -36,5 +36,7 @@ public interface ISpace {
     public IPoint getTopLeft();
     public IPoint getCenter();
     
+    public void move(int x, int y);
+    
     public Brightness getBrightness();
 }

@@ -21,22 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dungeonBuilder.space;
-
-import dungeonBuilder.space.strucure.IStructure;
+package treasureBuilder;
 
 /**
  *
  * @author Andrew Vitkus
  */
-public interface IRoom extends IRectSpace{
-    public void setMain(boolean main);
-    public boolean isMain();
-    public void setBoss(boolean boss);
-    public boolean isBoss();
-    public void setFirst(boolean first);
-    public boolean isFirst();
+public enum TreasureType {
+    STANDARD_ITEMS, MAGIC_ITEMS, GOODS, ART, JEWELS, NONE;
     
-    public void setStructures(IStructure[] structs);
-    public IStructure[] getStructures();
+    public static TreasureType get(String s) {
+        return valueOf(s.trim().toUpperCase());
+    }
 }

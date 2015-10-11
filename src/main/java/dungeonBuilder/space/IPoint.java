@@ -30,4 +30,6 @@ package dungeonBuilder.space;
 public interface IPoint {
     public double getX();
     public double getY();
+    public double distanceTo(IPoint p);
+    public double angleTo(IPoint p);
 }

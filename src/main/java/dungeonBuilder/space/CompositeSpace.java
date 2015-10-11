@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Andrew Vitkus, Skye Frame.
+ * Copyright 2015 Andrew.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,16 +21,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package encounterBuilder.creature;
+package dungeonBuilder.space;
 
 /**
  *
- * @author Andrew Vitkus
+ * @author Andrew
  */
-public enum TreasureType {
-    STANDARD_ITEMS, MAGIC_ITEMS, GOODS, ART, JEWELS, NONE;
+public class CompositeSpace extends AbstractSpace implements ICompositeSpace {
+    private final ISpace[] spaces;
     
-    public static TreasureType get(String s) {
-        return valueOf(s.trim().toUpperCase());
+    public CompositeSpace(ISpace... spaces) {
+        super(0, 0, null, null, null);
+        this.spaces = spaces;
+    }
+
+    @Override
+    public ISpace[] getSpaces() {
+        return spaces;
+    }
+    
+    @Override
+    public void move(int x, int y) {
+        for(ISpace space : spaces) {
+            space.move(x, y);
+        }
     }
 }

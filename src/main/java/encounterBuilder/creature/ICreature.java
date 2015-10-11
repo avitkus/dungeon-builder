@@ -23,6 +23,7 @@
  */
 package encounterBuilder.creature;
 
+import treasureBuilder.TreasureType;
 import encounterBuilder.creature.property.CreatureType;
 import encounterBuilder.creature.property.LCAlignment;
 import encounterBuilder.creature.property.GEAlignment;

@@ -23,10 +23,13 @@
  */
 package treasureBuilder;
 
+import dungeonBuilder.space.IRoom;
+import encounterBuilder.IEncounter;
+
 /**
  *
  * @author Andrew Vitkus
  */
 public interface ITreasureBuilder {
-    
+    public void allocateTreasure(IRoom[] rooms, IEncounter[] encoutners);
 }

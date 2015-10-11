@@ -27,5 +27,5 @@ package dungeonBuilder.space;
  *
  * @author Andrew Vitkus
  */
-public interface IRectSpace {
+public interface IRectSpace extends ISpace {
 }

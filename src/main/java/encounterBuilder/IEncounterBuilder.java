@@ -23,7 +23,6 @@
  */
 package encounterBuilder;
 
-import encounterBuilder.creature.ICreature;
 
 /**
  *

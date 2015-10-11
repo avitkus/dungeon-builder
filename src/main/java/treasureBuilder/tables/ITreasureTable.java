@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Andrew Vitkus, Skye Frame.
+ * Copyright 2015 Andrew.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,22 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dungeonBuilder.space;
+package treasureBuilder.tables;
 
-import dungeonBuilder.space.strucure.IStructure;
+import treasureBuilder.ITreasure;
 
 /**
  *
- * @author Andrew Vitkus
+ * @author Andrew
  */
-public interface IRoom extends IRectSpace{
-    public void setMain(boolean main);
-    public boolean isMain();
-    public void setBoss(boolean boss);
-    public boolean isBoss();
-    public void setFirst(boolean first);
-    public boolean isFirst();
-    
-    public void setStructures(IStructure[] structs);
-    public IStructure[] getStructures();
+public interface ITreasureTable {
+    public ITreasure getTreasure();
 }

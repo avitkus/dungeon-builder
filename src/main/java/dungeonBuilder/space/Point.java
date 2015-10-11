@@ -23,20 +23,52 @@
  */
 package dungeonBuilder.space;
 
-import dungeonBuilder.space.strucure.IStructure;
-
 /**
  *
  * @author Andrew Vitkus
  */
-public interface IRoom extends IRectSpace{
-    public void setMain(boolean main);
-    public boolean isMain();
-    public void setBoss(boolean boss);
-    public boolean isBoss();
-    public void setFirst(boolean first);
-    public boolean isFirst();
+public class Point implements IPoint {
+    private final double x, y;
+
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
     
-    public void setStructures(IStructure[] structs);
-    public IStructure[] getStructures();
+    @Override
+    public double getX() {
+        return x;
+    }
+
+    @Override
+    public double getY() {
+        return y;
+    }
+
+    @Override
+    public double distanceTo(IPoint p) {
+        return Math.sqrt(Math.pow(p.getX() - x, 2) + Math.pow(p.getY() - y, 2));
+    }
+
+    @Override
+    public double angleTo(IPoint p) {
+        double dy = y - p.getY();
+        double dx = x - p.getX();
+        
+        return Math.atan2(dy, dx);
+    }
+    
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Point) {
+            Point p = (Point)o;
+            return p.x == x && p.y == y;
+        }
+        return false;
+    }
 }

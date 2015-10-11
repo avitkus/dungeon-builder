@@ -23,20 +23,53 @@
  */
 package dungeonBuilder.space;
 
-import dungeonBuilder.space.strucure.IStructure;
+import dungeonBuilder.property.Brightness;
 
 /**
  *
  * @author Andrew Vitkus
  */
-public interface IRoom extends IRectSpace{
-    public void setMain(boolean main);
-    public boolean isMain();
-    public void setBoss(boolean boss);
-    public boolean isBoss();
-    public void setFirst(boolean first);
-    public boolean isFirst();
+public class AbstractSpace implements ISpace {
+    private final int width, height;
+    private IPoint topLeft, center;
+    private final Brightness brightness;
     
-    public void setStructures(IStructure[] structs);
-    public IStructure[] getStructures();
+    public AbstractSpace(int width, int height, IPoint topLeft, IPoint center, Brightness brightness) {
+        this.height = height;
+        this.width = width;
+        this.topLeft = topLeft;
+        this.center = center;
+        this.brightness = brightness;
+    }
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+    @Override
+    public IPoint getTopLeft() {
+        return topLeft;
+    }
+
+    @Override
+    public IPoint getCenter() {
+        return center;
+    }
+
+    @Override
+    public Brightness getBrightness() {
+        return brightness;
+    }
+
+    @Override
+    public void move(int x, int y) {
+        topLeft = new Point(topLeft.getX() + x, topLeft.getY() + y);
+        center = new Point(center.getX() + x, center.getY() + y);
+    }
+    
 }
