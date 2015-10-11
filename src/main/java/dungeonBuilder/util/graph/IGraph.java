@@ -29,6 +29,7 @@ package dungeonBuilder.util.graph;
  * @param <T> type of the graph's nodes
  */
 public interface IGraph<T> {
+	public T getFirst();
     public T[] getElements();
     public T[][] getEdges();
     

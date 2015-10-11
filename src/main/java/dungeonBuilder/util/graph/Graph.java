@@ -25,18 +25,29 @@ package dungeonBuilder.util.graph;
 
 import java.util.function.Function;
 
+import dungeonBuilder.space.ISpace;
+
 /**
  *
  * @author Andrew Vitkus
  */
 public class Graph<T> implements IGraph<T> {
-    GraphNode<T> root;
-
+    //GraphNode<T> root;
+	
+	public Graph(T[][] elements) {
+	}
+	
     @Override
     public T[] getElements() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    @Override
+	public T getFirst() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+    
     @Override
     public T[][] getEdges() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -61,8 +72,10 @@ public class Graph<T> implements IGraph<T> {
     public T[][] getMaxSeparated() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+	
     
-    private Object[] traverseTree(GraphNode<T> root, Function<T, Object> fcn) {
+  /*  private Object[] traverseTree(GraphNode<T> root, Function<T, Object> fcn) {
         return null;
     }
     
@@ -74,5 +87,5 @@ public class Graph<T> implements IGraph<T> {
             this.value = value;
             this.connections = connections;
         }
-    }
+    }*/
 }
